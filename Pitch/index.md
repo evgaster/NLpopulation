@@ -31,7 +31,7 @@ Was it 5 pages? --> this is the 5th slide!
 
 Did it contain an R expression that got evaluated and displayed? --> not yet!
 
-Was it hosted on github or Rpubs? --> going to github!
+Was it hosted on github or Rpubs? --> github!
 
 Was the presentation actually a presentation? --> not yet
 
