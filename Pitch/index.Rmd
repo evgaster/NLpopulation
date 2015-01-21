@@ -11,7 +11,15 @@ mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
 ---
 
-## page 2
+## Introduction
+
+Shiny is a web application framework for R (see http://shiny.rstudio.com/). It is great and very easy to turn an analyses done with R into an interactive web application.
+
+Slidify is a framework for making stunning presentations with very easy to use markup (see http://slidify.org/).
+
+Both shiny and slidify are well intergrated with Rstudio (see http://www.rstudio.com/). It's a small step from your analysis in R to either presenting it (slidify) or to have others use it (shiny).
+
+This very simple, not so stunning, presentation is done with slidify. It's about a simple web application build with shiny based on an analyses of the population of the Netherlands over time.
 
 ---
 
@@ -33,5 +41,5 @@ Did it contain an R expression that got evaluated and displayed? --> not yet!
 
 Was it hosted on github or Rpubs? --> github!
 
-Was the presentation actually a presentation? --> not yet
+Was the presentation actually a presentation? (I.e. it had a legitimate pitch for the shiny application?) --> not yet
 
