@@ -48,7 +48,7 @@
   <article data-timings="">
     <p>Shiny is a web application framework for R (see <a href="http://shiny.rstudio.com/">http://shiny.rstudio.com/</a>). It is great and very easy to turn an analyses done with R into an interactive web application.</p>
 
-<p>Slidify is a framework for making stunning presentations with very easy to use markup (see <a href="http://slidify.org/">http://slidify.org/</a>).</p>
+<p>Slidify is a framework for making presentations (see <a href="http://slidify.org/">http://slidify.org/</a>). It uses a very ease markup &quot;language&quot; and integrates with other tools to make stunning presentations.</p>
 
 <p>Both shiny and slidify are well intergrated with Rstudio (see <a href="http://www.rstudio.com/">http://www.rstudio.com/</a>). It&#39;s a small step from your analysis in R to either presenting it (slidify) or to have others use it (shiny).</p>
 
@@ -60,38 +60,72 @@
 
 <slide class="" id="slide-2" style="background:;">
   <hgroup>
-    <h2>page 3</h2>
+    <h2>The question bothering you ...</h2>
   </hgroup>
   <article data-timings="">
-    
+    <h3>How big was the population of the Netherlands on my birthdate?</h3>
+
+<p>Look no further.</p>
+
+<h3>Surf to <a href="https://evgaster.shinyapps.io/NLpopulation/">https://evgaster.shinyapps.io/NLpopulation/</a>.</h3>
+
+<p>Just fill in the date.</p>
+
+<p>The application will tell you and show you.</p>
+
+<p>Fill in an other date. The application will dynamically adjust.</p>
+
+<h3>Curious?</h3>
+
+<p>Read on ...</p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-3" style="background:;">
   <hgroup>
-    <h2>page 4</h2>
+    <h2>Behind the scenes</h2>
   </hgroup>
   <article data-timings="">
-    
+    <h3>For the impatient</h3>
+
+<p>The code is available at <a href="https://github.com/evgaster/NLpopulation">https://github.com/evgaster/NLpopulation</a></p>
+
+<p>It shows that what you can do with a few R commands, can be wrapped with a few (really just a few) other R commands and turned into a web application.</p>
+
+<p>It is little more then the familiar: load data; fit a model; predict; present. </p>
+
+<p>The server side (no need to get scared) does the load and fit; waits for the user interface side (again, no need to get scared) to give it a new X value; predicts a corresponding Y; hands the results to the user interface; the user interface shows it to you.</p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-4" style="background:;">
   <hgroup>
-    <h2>page 5</h2>
+    <h2>A peek at the server side</h2>
   </hgroup>
   <article data-timings="">
-    <p>Was the presentation completed in slidify or R Presenter? --&gt; Slidify!</p>
+    <p>The server loads an preprocesses the data (not shown). The date looks like:</p>
 
-<p>Was it 5 pages? --&gt; this is the 5th slide!</p>
+<pre><code>##         date population
+## 1 1950-01-01   10026773
+## 2 1951-01-01   10200280
+## 3 1952-01-01   10328343
+</code></pre>
 
-<p>Did it contain an R expression that got evaluated and displayed? --&gt; not yet!</p>
+<p>It then fits a model to the data. Subsequently it prodicts a new population value for a given date.</p>
 
-<p>Was it hosted on github or Rpubs? --&gt; github!</p>
+<pre><code class="r">f &lt;- lm(population ~ date, data = d)
+predict(f, data.frame(date = as.Date(&quot;1958-06-10&quot;)))
+</code></pre>
 
-<p>Was the presentation actually a presentation? (I.e. it had a legitimate pitch for the shiny application?) --&gt; not yet</p>
+<pre><code>##        1 
+## 11445548
+</code></pre>
+
+<p>In the application the given date comes from the user interface and the prediction goes back to it.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -109,19 +143,19 @@
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='page 3'>
+        data-slide=2 title='The question bothering you ...'>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='page 4'>
+        data-slide=3 title='Behind the scenes'>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='page 5'>
+        data-slide=4 title='A peek at the server side'>
          4
       </a>
     </li>
